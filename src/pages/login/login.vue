@@ -91,7 +91,7 @@ export default {
             
             if(this.click=='true'){
                     this.click='false'
-                    console.log('哈哈哈哈杨会')
+                    console.log('哈哈哈哈杨会11')
             }else{
                 this.click='true'
             }
