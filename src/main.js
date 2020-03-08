@@ -30,7 +30,7 @@ axios.defaults.headers.common['Authorization'] = 'Bearer YWMtknehLoJT2k_f7mlPoNg
 axios.interceptors.request.use(
   config => {
     // 发送请求前要做的事
-    console.log('发送请求前,zheshi master code change111 ');
+    console.log('发送请求前,改变了test');
     console.log(config);
  
     return config;
