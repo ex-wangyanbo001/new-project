@@ -113,7 +113,7 @@ export default {
         // 注册
         register(){
             this.$router.push({path:'/register'})
-            console.log('我是王彦博')
+            console.log('我是王彦博1')
         },
         
         
