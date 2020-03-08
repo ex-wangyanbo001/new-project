@@ -68,6 +68,9 @@ export default {
         // 可以访问组件实例 `this`
          console.log(this)
     },
+    mounted() {
+        console.log('我是a')
+    },
     
     methods:{
         setisselect(num=0){
