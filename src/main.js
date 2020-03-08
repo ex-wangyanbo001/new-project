@@ -7,8 +7,16 @@ import 'lib-flexible/flexible.js'
 import 'style/styleInitialize.css'
 import axios from'axios'
 import VueAxios from 'vue-axios'
+import Vuex from 'vuex'
+import store from './vuex'
 
-Vue.use(VueAxios, axios)
+import { LoadingPlugin } from 'vux'  //vux loading 配置
+Vue.use(LoadingPlugin)                //vux loading 配置
+
+import {ToastPlugin} from 'vux'       //vux toast 配置
+Vue.use(ToastPlugin)  //vux toast 配置  position 弹出方向
+
+Vue.use(VueAxios, axios,Vuex)
 Vue.config.productionTip = false
 
 // 设置项目请求的根路径,设置以后，项目中调所有接口就会在前面拼接上根路径
@@ -44,9 +52,37 @@ axios.interceptors.response.use(
   }
 );
 
+router.beforeEach((to,from,next)=>{
+  // console.log(to);
+  // console.log(from);
+  if(sessionStorage.getItem('loginData')){
+    Toast('跳转成功');
+    next();
+  }else {
+    //没有登录，去跳转登录页
+    if(to.path === '/login'||to.path === '/'){
+      next();
+    }else {
+      next({
+        path:'/login'
+      });
+    }
+  }
+});
+
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
+})
+
+new Vue({
+  el: 'title',
+  computed:{
+    title(){
+      return store.state.title
+    }
+  }
 })

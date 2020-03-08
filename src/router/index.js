@@ -6,7 +6,8 @@ import HelloWorld from '@/components/HelloWorld'
 Vue.use(Router)
 
 
-export default new Router({
+
+const router= new Router({
   routes: [
     {
       path: '/',
@@ -15,14 +16,28 @@ export default new Router({
     },
     {
       path: '/login',
-      name: 'login',
-      component: resolve => require(['@/pages/login'], resolve),
+      name: '登录页',
+      component: resolve => require(['@/pages/login/login'], resolve),
     },
     {
       path: '/register',
       name: 'register',
-      component: resolve => require(['@/pages/register'], resolve),
+      component: resolve => require(['@/pages/login/register'], resolve),
+    },
+    {
+      path: '/comm',
+      name: 'comm',
+      component: resolve => require(['@/pages/comm'], resolve),
+    },
+    {
+      path: '/ceshi',
+      name: 'ceshi',
+      component: resolve => require(['@/pages/ceshi'], resolve),
     }
     
   ]
+
+  
 })
+
+export default router

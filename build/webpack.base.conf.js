@@ -9,7 +9,7 @@ function resolve (dir) {
 }
 
 
-const webpackConfig = {
+let webpackConfig = {
   context: path.resolve(__dirname, '../'),
   entry: {
     app: './src/main.js'

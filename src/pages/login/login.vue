@@ -1,21 +1,21 @@
 <template>
     <div class="pages">
         <div class="line"></div>
-        <div class="logo"><img src="../assets/images/logo_poc@2x.png" alt=""></div>
+        <div class="logo"><img src="../../assets/images/logo_poc@2x.png" alt=""></div>
         <div class="loginMethod" >
             <div :class="isSelect===index?'items':'item'" v-for="(item,index) in List" :key='index' @click='clickLogin(item.title,index)' >
                 {{item.title}}
             </div>
         </div>
         <!-- 账号蜜码登录 -->
-            <passwordLogin v-if="isSelect==0"></passwordLogin>
+            <passwordLogin ref='passwordLogin' v-if="isSelect==0"></passwordLogin>
             
         <!-- 短信验证码登录 -->
-            <codeLogin v-if="isSelect==1"></codeLogin>
+            <codeLogin ref='codeLogin' v-if="isSelect==1"></codeLogin>
             
 
          <div class="agreement">
-              <img  @click="switchTo" :src="click=='true'?require('../assets/images/check.png'):require('../assets/images/checks.png')" alt=""><div>登录即代表您同意<a href="#">《用户服务协议》</a><a href="#">《xxxxx》</a></div>
+              <img  @click="switchTo" :src="click=='true'?require('../../assets/images/check.png'):require('../../assets/images/checks.png')" alt=""><div>登录即代表您同意<a href="#">《用户服务协议》</a><a href="#">《xxxxx》</a></div>
               
           </div>
 
@@ -28,8 +28,8 @@
 </template>
 <script>
 
-import passwordLogin from '@/components/passwordLogin'
-import codeLogin from '@/components/codeLogin'
+import passwordLogin from '@/pages/login/components/passwordLogin'
+import codeLogin from '@/pages/login/components/codeLogin'
 export default {
     data(){
         return{
@@ -51,8 +51,33 @@ export default {
     created:function(){
     //    console.log(setInterval(()=>{},1000))
     },
+     beforeRouteEnter (to, from, next) {
+    // 在渲染该组件的对应路由被 confirm 前调用
+    // 不！能！获取组件实例 `this`
+    // 因为当守卫执行前，组件实例还没被创建
+    },
+    beforeRouteUpdate (to, from, next) {
+        // 在当前路由改变，但是该组件被复用时调用
+        // 举例来说，对于一个带有动态参数的路径 /foo/:id，在 /foo/1 和 /foo/2 之间跳转的时候，
+        // 由于会渲染同样的 Foo 组件，因此组件实例会被复用。而这个钩子就会在这个情况下被调用。
+        // 可以访问组件实例 `this`
+         console.log(this)
+    },
+    beforeRouteLeave (to, from, next) {
+        // 导航离开该组件的对应路由时调用
+        // 可以访问组件实例 `this`
+         console.log(this)
+    },
     
     methods:{
+        setisselect(num=0){
+            this.isSelect=num;
+            
+        },
+
+
+
+
         clickLogin(title,index){
             console.log(title)
             this.isSelect=index;
@@ -70,28 +95,22 @@ export default {
         
         // 登录
         login(){
-             if(!this.userphone){
-                console.log('手机号不能为空')
-                    return false
+            if(this.isSelect==0){
+                console.log(this.$refs.passwordLogin,11111111)
+                this.$refs.passwordLogin.login()
             }
-            if(!/^1[3|4|5|7|8]\d{9}$/.test(this.userphone)){
-                console.log('手机号格式不正确');
-                return false;
+            if(this.isSelect==1){
+                 console.log(this.$refs.codeLogin,22222)
+                 this.$refs.codeLogin.login()
             }
-            if(!this.password){
-                console.log('密码不能为空')
-                    return false
-            }
+            
 
         },
         // 注册
         register(){
             this.$router.push({path:'/register'})
         },
-        // 忘记密码
-        forget(){
-
-        },
+        
         
         
     }
@@ -102,11 +121,11 @@ export default {
 <style lang="less" scoped>
 .pages{
         .line{
-        width: 750px;
-        height:1px;
-        margin-top: 40px;
-        margin-bottom: 36px;
-        background-color: #F6F6F6;
+            width: 750px;
+            height:1px;
+            margin-top: 40px;
+            margin-bottom: 36px;
+            background-color: #F6F6F6;
         }
 
         .logo img{

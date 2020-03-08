@@ -1,13 +1,13 @@
 <template>
   <div  class="password-login">
     <div class="phone-number">
-      <img src="../assets/images/phone.png" alt />
+      <img src="../../../assets/images/phone.png" alt />
       <input type="text" placeholder="请输入手机号" v-model="userphone" />
     </div>
     <div class="user-password">
-      <img class="img-one" src="../assets/images/passwords.png" alt />
+      <img class="img-one" src="../../../assets/images/passwords.png" alt />
       <input :type="passwordType" placeholder="请输入密码" v-model="password" />
-      <img class="img-two" @click="passwordHandle" :src="passwordType=='password'?require('../assets/images/password.png'):require('../assets/images/ic_show.png')" alt />
+      <img class="img-two" @click="passwordHandle" :src="passwordType=='password'?require('../../../assets/images/password.png'):require('../../../assets/images/ic_show.png')" alt />
     </div>
     <div @click="forget" class="forget">忘记密码?</div>
   </div>
@@ -25,9 +25,14 @@ export default {
     };
   },
   methods: {
+    login(){
+            console.log('我是密码登录的login方法')
+            this.$router.push('/comm')
+        },
       //忘记密码
       forget(){
-
+        console.log('点击了forget')
+        this.$parent.setisselect(1)
       },
       //密码显示或隐藏
         passwordHandle(){

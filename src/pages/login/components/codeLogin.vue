@@ -1,12 +1,12 @@
 <template>
     <div class="page">
         <div class="phone">
-                <img src="../assets/images/phone.png" alt="">
+                <img src="../../../assets/images/phone.png" alt="">
                 <input type="text"  placeholder="请输入手机号码" v-model="userphone">
                 <div class="auth-code" @click='authCode'>{{counttime}}</div>
             </div>
             <div class="auth">
-                 <img class="imgs-one" src="../assets/images/authcode.png" alt="">
+                 <img class="imgs-one" src="../../../assets/images/authcode.png" alt="">
                   <input type="text" placeholder="请输入验证码" v-model="codeDemo">
                  
             </div>
@@ -26,7 +26,15 @@ export default {
     destroyed:function(){
             inteval&&clearInterval(inteval)
     },
+    mounted(){
+        console.log(this.$parent,22222222222)
+
+        console.log(this.$parent.isSelect,22222222222)
+    },
     methods:{
+        login(){
+            console.log('我是短信登录的login方法')
+        },
             //获取语音验证码
             voiceCode(){
 

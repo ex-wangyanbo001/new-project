@@ -90,7 +90,12 @@ export default {
     return {
       msg: 'Welcome to Your Vue.js App'
     }
-  }
+  },
+  mounted() {
+    setTimeout(()=>{
+      this.$router.push('/comm')
+    },5000)
+  },
 }
 </script>
 
