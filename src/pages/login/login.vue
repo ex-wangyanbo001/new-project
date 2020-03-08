@@ -37,7 +37,7 @@ export default {
             
             isSelect:0,
             List:[
-                {title:'账号密码登录王彦博'},
+                {title:'账号密码登录'},
                 {title:'短信验证码登录'}
             ],
             
@@ -91,7 +91,7 @@ export default {
             
             if(this.click=='true'){
                     this.click='false'
-                    console.log('哈哈哈哈杨会11')
+                    
             }else{
                 this.click='true'
             }
@@ -113,7 +113,7 @@ export default {
         // 注册
         register(){
             this.$router.push({path:'/register'})
-            console.log('我是王彦博1')
+           
         },
         
         
