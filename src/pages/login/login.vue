@@ -69,7 +69,7 @@ export default {
          console.log(this)
     },
     mounted() {
-        console.log('我是a')
+        console.log('我是ahhhh')
     },
     
     methods:{
@@ -91,7 +91,7 @@ export default {
             
             if(this.click=='true'){
                     this.click='false'
-                    console.log('哈哈哈哈杨会')
+                    console.log('哈哈哈哈杨会11')
             }else{
                 this.click='true'
             }
@@ -113,7 +113,7 @@ export default {
         // 注册
         register(){
             this.$router.push({path:'/register'})
-            console.log('我是王彦博')
+            console.log('我是王彦博1')
         },
         
         
