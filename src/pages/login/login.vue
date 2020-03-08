@@ -69,7 +69,7 @@ export default {
          console.log(this)
     },
     mounted() {
-        console.log('我是a')
+        console.log('我是ahhhh')
     },
     
     methods:{
