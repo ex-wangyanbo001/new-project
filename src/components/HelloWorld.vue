@@ -92,9 +92,6 @@ export default {
     }
   },
   mounted() {
-    setTimeout(()=>{
-      this.$router.push('/comm')
-    },5000)
   },
 }
 </script>

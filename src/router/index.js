@@ -8,6 +8,7 @@ Vue.use(Router)
 
 
 const router= new Router({
+  mode: 'history',
   routes: [
     {
       path: '/',
@@ -34,6 +35,24 @@ const router= new Router({
       name: 'ceshi',
       component: resolve => require(['@/pages/ceshi'], resolve),
     }
+    ,
+    {
+      path: '/draw',
+      name: 'draw',
+      component: resolve => require(['@/pages/draw'], resolve),
+    }
+    ,
+    {
+      path: '/ques_one',
+      name: 'ques_one',
+      component: resolve => require(['@/pages/question/ques_one'], resolve),
+    },
+    {
+      path: '/comms',
+      name: 'comms',
+      component: resolve => require(['@/pages/comms'], resolve),
+    }
+    
     
   ]
 

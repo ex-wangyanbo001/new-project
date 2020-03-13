@@ -1,8 +1,8 @@
 <template>
-    <div class="page">
-        <!-- <div class="phone">验证码已发送至{{159**123231}}</div> -->
+     <div class="page">
+        
         <div  class="captcha">
-                <!-- <input type="number" v-for='(c,i) in code' :key="i" v-model="code[i]"  /> -->
+               
                     <input type="number" v-model='code[0]'> 
                     <input type="number" v-model='code[1]'> 
                     <input type="number" v-model='code[2]'> 
@@ -13,16 +13,13 @@
        
         
         <div class="keyboard" v-show='show'>
-            <button class="btn" v-for="(item,index) in list" :key="index" @click="impor" >{{item}}</button>
+            <button class="btn" v-for="(item,index) in list" :key="index" @click="impor(item,index)" >{{item}}</button>
         </div>
 
     </div>
 </template>
-
 <script>
-
 export default {
-    
     data(){
         return{
            show:true,
@@ -39,25 +36,27 @@ export default {
   },
   
   methods: {
-       impor(event){
-           const btnText = event.target.textContent
-           
-            if(btnText==='X'){
-                this.code = this.code.substring(0, this.code.length -1)
-            }else if(this.code.length<6){
-                 this.code += btnText
+       impor(item,index){
+        
+           let arr=this.code
+           let ary=this.list
+            if(ary[index]=='X'){
+                this.code = arr.slice(0, arr.length -1)
+                console.log(arr)
+            }else if(arr.length<6){
+                 arr=arr.push(ary[index])
+                //  console.log(arr)
                  
             }
        }
     
     
   }
-
-
 }
 </script>
+
 <style lang="less" scoped>
-        .captcha {
+    .captcha {
             display: flex;
             justify-content: center;
             padding-top: 80px;
@@ -80,10 +79,11 @@ export default {
 
        
         .keyboard{
-            padding-top: 44px;
+            // padding-top: 44px;
             display: flex;
             flex-wrap: wrap;
-            
+            position: fixed;
+            top: 600px;
             // border-top:1px solid gray ;
            
             width: 750px;

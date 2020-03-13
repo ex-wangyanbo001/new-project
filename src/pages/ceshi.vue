@@ -1,29 +1,30 @@
 <template>
     <div>
-        <!-- <div v-for="(item,index) in List" :key="index">{{item}}</div> -->
-        <div>哈哈</div>
+        
+       <pop></pop>
     </div>
 </template>
 
 <script>
+import pop from '@/components/pop'
 export default {
     data(){
         return{
-            List:[1,1,1,1]
+           
         }
+    },
+    components:{
+        pop
     },
     
     methods:{
+        btn(){
 
+        }
     },
-    created(){
-        setTimeout(()=>{
-            this.List=[2,3,4,5]
-        },2000)
-        console.log('我是created中的')
-    },
-    updated(){
-        console.log('updated中的')
-    }
+   
 }
 </script>
+<style lang="less" scoped>
+    
+</style>
