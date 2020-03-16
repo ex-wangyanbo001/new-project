@@ -173,7 +173,7 @@ export default {
                  position: absolute;
                  left: 225px;
                  bottom: 75px;
-                 opacity: 0.8;
+                //  opacity: 0.8;
              } 
        }
 

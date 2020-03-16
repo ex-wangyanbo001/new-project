@@ -51,8 +51,22 @@ const router= new Router({
       path: '/comms',
       name: 'comms',
       component: resolve => require(['@/pages/comms'], resolve),
+    }, 
+    {
+      path: '/lists',
+      name: 'lists',
+      component: resolve => require(['@/pages/lists'], resolve),
+    },
+    {
+      path: '/listss',
+      name: 'listss',
+      component: resolve => require(['@/pages/listss'], resolve),
+    },
+    {
+      path: '/refresh',
+      name: 'refresh',
+      component: resolve => require(['@/pages/refresh'], resolve),
     }
-    
     
   ]
 
