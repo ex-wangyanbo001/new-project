@@ -1,5 +1,5 @@
 {
-  "name": "project",
+  "name": "wyy",
   "version": "1.0.0",
   "description": "A Vue.js project",
   "author": "wyb <wyb17665378291@163.com>",
@@ -76,5 +76,18 @@
     "> 1%",
     "last 2 versions",
     "not ie <= 8"
-  ]
+  ],
+  "main": "postcss.config.js",
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wyb176/new-project.git"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wyb176/new-project/issues"
+  },
+  "homepage": "https://github.com/wyb176/new-project#readme"
 }
