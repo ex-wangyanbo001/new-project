@@ -1,6 +1,7 @@
 <template>
     <div>
-        <div @click="btn" v-for="(item,index) in list" :key="'list2'+index">{{item.content}}</div>
+        <div>12345</div>
+    <div>comit11111111</div>
     </div>
 </template>
 <script>
