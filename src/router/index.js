@@ -66,6 +66,11 @@ const router= new Router({
       path: '/refresh',
       name: 'refresh',
       component: resolve => require(['@/pages/refresh'], resolve),
+    },
+    {
+      path: '/odd',
+      name: 'odd',
+      component: resolve => require(['@/pages/odd'], resolve),
     }
     
   ]

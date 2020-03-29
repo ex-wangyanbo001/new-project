@@ -16,8 +16,6 @@ Vue.use(LoadingPlugin)                //vux loading 配置
 import {ToastPlugin} from 'vux'       //vux toast 配置
 Vue.use(ToastPlugin)  //vux toast 配置  position 弹出方向
 
-
-
 Vue.use(VueAxios, axios,Vuex)
 Vue.config.productionTip = false
 
@@ -54,7 +52,24 @@ axios.interceptors.response.use(
   }
 );
 
-
+// 路由守卫
+// router.beforeEach((to,from,next)=>{
+//   // console.log(to);
+//   // console.log(from);
+//   if(sessionStorage.getItem('loginData')){
+//     Toast('跳转成功');
+//     next();
+//   }else {
+//     //没有登录，去跳转登录页
+//     if(to.path === '/login'||to.path === '/'){
+//       next();
+//     }else {
+//       next({
+//         path:'/login'
+//       });
+//     }
+//   }
+// });
 
 new Vue({
   el: '#app',
@@ -64,4 +79,11 @@ new Vue({
   template: '<App/>'
 })
 
-
+new Vue({
+  el: 'title',
+  computed:{
+    title(){
+      return store.state.title
+    }
+  }
+})
