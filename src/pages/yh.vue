@@ -27,11 +27,9 @@
 </template>
 
 <script>
-import { Swiper } from 'vux'
+
 export default {
-    components: {
-    Swiper
-  },
+  
     data(){
         return{
             isSelect:0,
