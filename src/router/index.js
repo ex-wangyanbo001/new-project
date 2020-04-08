@@ -86,6 +86,11 @@ const router= new Router({
       path: '/odds',
       name: 'odds',
       component: resolve => require(['@/pages/odds'], resolve),
+    },
+    {
+      path: '/toReport',
+      name: 'toReport',
+      component: resolve => require(['@/pages/toReport'], resolve),
     }
     
   ]
