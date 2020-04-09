@@ -91,6 +91,11 @@ const router= new Router({
       path: '/toReport',
       name: 'toReport',
       component: resolve => require(['@/pages/toReport'], resolve),
+    },
+    {
+      path: '/videos',
+      name: 'videos',
+      component: resolve => require(['@/pages/videos'], resolve),
     }
     
   ]

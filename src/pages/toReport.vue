@@ -2,10 +2,10 @@
     <div class="pages">
         <div class="options">
             
-            <div class="options-title" v-for="(item,index) in list" :key="index" @click="switec(index)">
+            <a href="#"><div class="options-title" v-for="(item,index) in list" :key="index" @click="switec(index)">
                 <img class="img"  :src="isSelect==index?require('../assets/images/icyxz.png'):require('../assets/images/icwxz.png')" alt="">
-                <div>{{item}}</div> 
-            </div>
+                <div>{{item}}</div>
+            </div></a>
         </div>
         <div class="fill">
             <div class="fill-top">
@@ -14,7 +14,7 @@
             </div>
             <div class="fill-bottom">
                 <!-- <input  type="text" maxlength='200' v-model="text"> -->
-                <textarea v-model="text" id="input" maxlength='200'  wrap="hard" ></textarea>
+                <a href="#"><textarea v-model="text" id="input" maxlength='200'  wrap="hard" ></textarea></a>
             </div>
             
         </div>
@@ -64,12 +64,14 @@ export default {
 .pages{
     width: 750px;
     height: 100%;
+    padding-top: 60px;
     .options{
         width: 750px;
         height: 500px;
         border-top: 1px solid gray;
         border-bottom: 1px solid gray;
         padding-left: 20px;
+        
        
         
         .options-title{
